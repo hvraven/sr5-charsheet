@@ -7,6 +7,8 @@
 
 \usepackage{xcolor}
 \definecolor{border}{rgb}{0.494117647059,0.0588235294118,0.0705882352941}
+\definecolor{line}{RGB}{109,110,112}
+\definecolor{font}{RGB}{39,36,37}
 
 \usepackage{fontspec}
 \setmainfont
@@ -18,10 +20,14 @@
 
 \usepackage{tikz}
 \usetikzlibrary{fadings}
+\usetikzlibrary{positioning}
 \tikzset{%
     border/.style={draw=border, line width=.3mm},
-    border end/.style={border, path fading=south}
+    border end/.style={border, path fading=south},
+    write/.style={draw=line, line width=.3mm},
 }
+
+\newcommand{\setnewlength}[2]{\newlength{#1}\setlength{#1}{#2}}
 
 \usepackage{calc}
 \newlength{\BoxWidth}
@@ -29,6 +35,14 @@
 \newlength{\TitleWidth}
 \setlength{\BoxWidth}{95mm}
 \setlength{\BoxSep}{3mm}
+
+\setnewlength{\BoxInnerUpperMargin}{2mm}
+\setnewlength{\BoxTitleHeight}{4.5mm}
+\setnewlength{\BoxInnerInnerMargin}{4mm}
+\setnewlength{\BoxInnerOuterMargin}{4mm}
+\setnewlength{\ContentWidth}{\BoxWidth-\BoxInnerInnerMargin-\BoxInnerOuterMargin}
+\setnewlength{\LineDistance}{4.5mm}
+
 \newcommand{\BoxTitle}[1]{\heading \color{white} \MakeUppercase{#1}}
 \newcommand{\BoxRight}[3]{% title, y, height
     \path[fill=border] (\BoxSep,#2) -- node[right] {\BoxTitle{#1}} ++(0mm,-4.5mm)%
@@ -38,20 +52,51 @@
     \path[border] (\BoxSep,#2) -- ++(0mm,-#3+12mm) ++(\BoxWidth,0mm) --
         ++(0mm,#3-20.5mm) -- ++(-4mm,4mm) -- ++(-\BoxWidth+4mm,0mm);
 }
-\newcommand{\BoxLeft}[3]{% title, y, height
-    \path[fill=border] (-\BoxSep,#2) -- node[left] {\BoxTitle{#1}} ++(0mm,-4.5mm)%
-        -- ++(-\TitleWidth,0mm) -- ++(-7.5mm,0mm) -- ++(7.5mm,4.5mm) -- cycle (-\BoxSep,#2);%
-    \path[border end] (-\BoxSep,#2-#3) -- ++(0mm,12mm) ++(-\BoxWidth,0mm) -- ++(0mm,-12mm);%
+\newcommand{\DrawBoxTitleLeft}[1]{% title
+    \path[fill=border] (\BoxWidth,0mm) -- node[left] {\BoxTitle{#1}} ++(0mm,-\BoxTitleHeight)%
+        -- ++(-\TitleWidth,0mm) -- ++(-7.5mm,0mm) --
+        ++(7.5mm,\BoxTitleHeight) -- cycle (\BoxWidth,0mm);%
+}
+\newcommand{\DrawBoxBorderLeft}[1]{% height
+    \path[border end] (\BoxWidth,-#1) -- ++(0mm,12mm) ++(-\BoxWidth,0mm) -- ++(0mm,-12mm);%
 %    \path[border end] (-\BoxSep-\BoxWidth,#2-#3) -- ++(0mm,12mm);%
-    \path[border] (-\BoxSep,#2) -- ++(0mm,-#3+12mm) ++(-\BoxWidth,0mm) --
-        ++(0mm,#3-20.5mm) -- ++(4mm,4mm) -- ++(\BoxWidth-4mm,0mm);
+    \path[border] (\BoxWidth,0mm) -- ++(0mm,-#1+12mm) ++(-\BoxWidth,0mm) --
+        ++(0mm,#1-20.5mm) -- ++(4mm,4mm) -- ++(\BoxWidth-4mm,0mm);
+}
+
+\newlength{\LeftBoxStart}
+\newlength{\LeftBoxHeight}
+\setlength{\LeftBoxStart}{0mm}
+\newenvironment{BoxLeft}[1]{%
+    \begin{scope}[%
+        xshift=-\BoxWidth-\BoxSep,
+        yshift=\LeftBoxStart,
+    ]
+    \newlength{\InBoxPosition}
+    \DrawBoxTitleLeft{#1}
+    \setlength{\InBoxPosition}{-\BoxTitleHeight-\BoxInnerUpperMargin}
+}{%
+    \DrawBoxBorderLeft{-\InBoxPosition}
+    \end{scope}
+}
+\newcommand{\LabeledLine}[1]{%label
+    \path[write] (\BoxInnerOuterMargin, \InBoxPosition-\LineDistance) -- ++(\ContentWidth,0mm);
+    \node[base right] at (\BoxInnerOuterMargin, \InBoxPosition-4mm) {\fontsize{7pt}{10.5pt}\selectfont #1} ;
+    \setlength{\InBoxPosition}{\InBoxPosition-\LineDistance}
 }
 
 \begin{document}
 \begin{tikzpicture}
     \setlength{\TitleWidth}{44mm}
     \BoxRight{Core Combat Info}{0mm}{30mm}
-    \BoxLeft{Core Combat Info}{0mm}{30mm}
+    \setlength{\TitleWidth}{36mm}
+    \begin{BoxLeft}{Personal Data}
+        \LabeledLine{\textbf{NAME/PRIMARY ALIAS}}
+        \LabeledLine{Metatype}
+        \LabeledLine{Age}
+        \LabeledLine{Street Cred}
+        \LabeledLine{Karma}
+    \end{BoxLeft}
 
     \setlength{\TitleWidth}{46mm}
     \BoxRight{Condition Monitor}{-35mm}{90mm}
