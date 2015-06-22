@@ -1,0 +1,78 @@
+\documentclass[a4paper,xetex]{article}
+\usepackage[margin=3mm]{geometry}
+\usepackage{hyperref}
+\hypersetup{%
+    pdfborder = {0 0 0}
+}
+
+\usepackage{xcolor}
+\definecolor{border}{rgb}{0.494117647059,0.0588235294118,0.0705882352941}
+
+\usepackage{fontspec}
+\setmainfont
+    [Ligatures=TeX]
+    {Open Sans}
+\newfontfamily{\heading}
+    [Ligatures=TeX]
+    {Grishenko NBP}
+
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+\tikzset{%
+    border/.style={draw=border, line width=.3mm},
+    border end/.style={border, path fading=south}
+}
+
+\usepackage{calc}
+\newlength{\BoxWidth}
+\newlength{\BoxSep}
+\newlength{\TitleWidth}
+\setlength{\BoxWidth}{95mm}
+\setlength{\BoxSep}{3mm}
+\newcommand{\BoxTitle}[1]{\heading \color{white} \MakeUppercase{#1}}
+\newcommand{\BoxRight}[3]{% title, y, height
+    \path[fill=border] (\BoxSep,#2) -- node[right] {\BoxTitle{#1}} ++(0mm,-4.5mm)%
+        -- ++(\TitleWidth,0mm) -- ++(7.5mm,0mm) -- ++(-7.5mm,4.5mm) -- cycle (\BoxSep,#2);%
+    \path[border end] (\BoxSep,#2-#3) -- ++(0mm,12mm);%
+    \path[border end] (\BoxSep+\BoxWidth,#2-#3) -- ++(0mm,12mm);%
+    \path[border] (\BoxSep,#2) -- ++(0mm,-#3+12mm) ++(\BoxWidth,0mm) --
+        ++(0mm,#3-20.5mm) -- ++(-4mm,4mm) -- ++(-\BoxWidth+4mm,0mm);
+}
+\newcommand{\BoxLeft}[3]{% title, y, height
+    \path[fill=border] (-\BoxSep,#2) -- node[left] {\BoxTitle{#1}} ++(0mm,-4.5mm)%
+        -- ++(-\TitleWidth,0mm) -- ++(-7.5mm,0mm) -- ++(7.5mm,4.5mm) -- cycle (-\BoxSep,#2);%
+    \path[border end] (-\BoxSep,#2-#3) -- ++(0mm,12mm) ++(-\BoxWidth,0mm) -- ++(0mm,-12mm);%
+%    \path[border end] (-\BoxSep-\BoxWidth,#2-#3) -- ++(0mm,12mm);%
+    \path[border] (-\BoxSep,#2) -- ++(0mm,-#3+12mm) ++(-\BoxWidth,0mm) --
+        ++(0mm,#3-20.5mm) -- ++(4mm,4mm) -- ++(\BoxWidth-4mm,0mm);
+}
+
+\begin{document}
+\begin{Form}
+
+\TextField[maxlen=40,align=2,height=10pt,width=45pt,name=alpha,borderwidth=0,bordercolor=1 1 1]{Alpha}
+
+\bigskip
+\TextField[maxlen=40,align=2,height=10pt,width=45pt,name=beta]{Beta}
+
+\bigskip
+\TextField[
+  maxlen=40,
+  calculate={%
+    var f_alpha = this.getField("alpha");
+    var f_beta = this.getField("beta");
+    event.value = f_alpha.value + f_beta.value;
+  },
+   align=2,height=10pt,width=45pt,name=gamma,readonly=true]{Gamma}
+
+\begin{tikzpicture}
+    \setlength{\TitleWidth}{44mm}
+    \BoxRight{Core Combat Info}{0mm}{30mm}
+    \BoxLeft{Core Combat Info}{0mm}{30mm}
+
+    \setlength{\TitleWidth}{46mm}
+    \BoxRight{Condition Monitor}{-35mm}{90mm}
+\end{tikzpicture}
+
+\end{Form} 
+\end{document}
