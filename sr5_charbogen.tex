@@ -44,6 +44,7 @@
 \setnewlength{\BoxTitleHeight}{4.5mm}
 \setnewlength{\BoxInnerInnerMargin}{4mm}
 \setnewlength{\BoxInnerOuterMargin}{4mm}
+\setnewlength{\VerticalBoxDistance}{5mm}
 \setnewlength{\ContentWidth}{\BoxWidth-\BoxInnerInnerMargin-\BoxInnerOuterMargin}
 \setnewlength{\LineDistance}{4.5mm}
 
@@ -70,29 +71,33 @@
 
 \newlength{\LeftBoxStart}
 \newlength{\LeftBoxHeight}
+\newlength{\InBoxPosition}
 \setlength{\LeftBoxStart}{0mm}
 \newenvironment{BoxLeft}[1]{%
     \begin{scope}[%
         xshift=-\BoxWidth-\BoxSep,
         yshift=\LeftBoxStart,
     ]
-    \newlength{\InBoxPosition}
     \DrawBoxTitleLeft{#1}
     \setlength{\InBoxPosition}{-\BoxTitleHeight-\BoxInnerUpperMargin}
 }{%
     \DrawBoxBorderLeft{-\InBoxPosition}
+    \addtolength{\LeftBoxStart}{\InBoxPosition-\VerticalBoxDistance}
+    \global\LeftBoxStart=\LeftBoxStart
     \end{scope}
 }
 \newcommand{\LabeledLine}[1]{%label
     \path[write] (\BoxInnerOuterMargin, \InBoxPosition-\LineDistance) -- ++(\ContentWidth,0mm);
     \node[base right] at (\BoxInnerOuterMargin, \InBoxPosition-4mm) {\fontsize{7pt}{10.5pt}\selectfont #1} ;
-    \setlength{\InBoxPosition}{\InBoxPosition-\LineDistance}
+    \addtolength{\InBoxPosition}{-\LineDistance}
 }
 
 \begin{document}
+\color{font}
 \begin{tikzpicture}
     \setlength{\TitleWidth}{44mm}
     \BoxRight{Core Combat Info}{0mm}{30mm}
+
     \setlength{\TitleWidth}{36mm}
     \begin{BoxLeft}{Personal Data}
         \LabeledLine{\textbf{NAME/PRIMARY ALIAS}}
@@ -100,6 +105,14 @@
         \LabeledLine{Age}
         \LabeledLine{Street Cred}
         \LabeledLine{Karma}
+    \end{BoxLeft}
+
+    \setlength{\TitleWidth}{30mm}
+    \begin{BoxLeft}{Attributes}
+        \LabeledLine{Body}
+        \LabeledLine{Agility}
+        \LabeledLine{Reaction}
+        \LabeledLine{Strength}
     \end{BoxLeft}
 
     \setlength{\TitleWidth}{46mm}
