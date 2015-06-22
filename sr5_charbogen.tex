@@ -11,9 +11,13 @@
 \definecolor{font}{RGB}{39,36,37}
 
 \usepackage{fontspec}
-\setmainfont
-    [Ligatures=TeX]
-    {Open Sans}
+\setmainfont[
+    Ligatures=TeX,
+    UprightFont={* Light},
+    ItalicFont={* Light Italic},
+    BoldFont={* Semibold},
+    BoldItalicFont={* Semibold Italic},
+    ]{Open Sans}
 \newfontfamily{\heading}
     [Ligatures=TeX]
     {Grishenko NBP}
