@@ -86,10 +86,17 @@
     \global\LeftBoxStart=\LeftBoxStart
     \end{scope}
 }
-\newcommand{\LabeledLine}[1]{%label
+\newcommand{\FullLine}{%
     \path[write] (\BoxInnerOuterMargin, \InBoxPosition-\LineDistance) -- ++(\ContentWidth,0mm);
-    \node[base right] at (\BoxInnerOuterMargin, \InBoxPosition-4mm) {\fontsize{7pt}{10.5pt}\selectfont #1} ;
     \addtolength{\InBoxPosition}{-\LineDistance}
+}
+\newcommand{\LabelAt}[2]{% x, label
+    \node[base right] at (\BoxInnerOuterMargin+#1, \InBoxPosition+\LineDistance-4mm)
+        {\fontsize{7pt}{10.5pt}\selectfont #2} ;
+}
+\newcommand{\LabeledLine}[1]{%label
+    \FullLine
+    \LabelAt{0mm}{#1}
 }
 
 \begin{document}
@@ -102,9 +109,17 @@
     \begin{BoxLeft}{Personal Data}
         \LabeledLine{\textbf{NAME/PRIMARY ALIAS}}
         \LabeledLine{Metatype}
+        \LabelAt{.5*\ContentWidth}{Ethnicity}
         \LabeledLine{Age}
+        \LabelAt{.25*\ContentWidth}{Sex}
+        \LabelAt{.5*\ContentWidth}{Height}
+        \LabelAt{.7*\ContentWidth}{Weight}
         \LabeledLine{Street Cred}
+        \LabelAt{.35*\ContentWidth}{Notoriety}
+        \LabelAt{.7*\ContentWidth}{Public awarness}
         \LabeledLine{Karma}
+        \LabelAt{.25*\ContentWidth}{Total Karma}
+        \LabelAt{.5*\ContentWidth}{Misc}
     \end{BoxLeft}
 
     \setlength{\TitleWidth}{30mm}
