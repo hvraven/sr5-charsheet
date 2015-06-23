@@ -5,4 +5,3 @@ different character designs.
 
 ## Known issues / ToDo
 * Title width in boxes should be calculated automatically
-* Text should be aligned with the beginning of a line

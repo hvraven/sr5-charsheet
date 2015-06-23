@@ -13,11 +13,11 @@
 \usepackage{fontspec}
 \setmainfont[
     Ligatures=TeX,
-    UprightFont={* Condensed},
-    ItalicFont={* Condensed Oblique},
+    UprightFont={* Condensed Bold},
+    ItalicFont={* Condensed Light Italic},
     BoldFont={* Condensed Bold},
-    BoldItalicFont={* Condensed Bold Oblique},
-    ]{DejaVu Sans}
+%    BoldItalicFont={* Condensed Bold Oblique},
+    ]{Open Sans}
 \newfontfamily{\heading}
     [Ligatures=TeX]
     {Grishenko NBP}
@@ -47,6 +47,7 @@
 \setnewlength{\VerticalBoxDistance}{5mm}
 \setnewlength{\ContentWidth}{\BoxWidth-\BoxInnerInnerMargin-\BoxInnerOuterMargin}
 \setnewlength{\LineDistance}{4.5mm}
+\setnewlength{\LineGap}{3mm}
 
 \newcommand{\BoxTitle}[1]{\heading \color{white} \MakeUppercase{#1}}
 \newcommand{\BoxRight}[3]{% title, y, height
@@ -86,17 +87,48 @@
     \global\LeftBoxStart=\LeftBoxStart
     \end{scope}
 }
-\newcommand{\FullLine}{%
-    \path[write] (\BoxInnerOuterMargin, \InBoxPosition-\LineDistance) -- ++(\ContentWidth,0mm);
+
+\newenvironment{BoxRow}{%
+}{%
     \addtolength{\InBoxPosition}{-\LineDistance}
+    \global\InBoxPosition=\InBoxPosition
+}
+
+\newcommand{\Skip}[1]{\addtolength{\InBoxPosition}{-#1}}
+
+\newcommand{\SingleRow}[1]{#1 \Skip{\LineDistance}
+}
+
+\newcommand{\Line}[2]{% x, width
+    \path[write] (\BoxInnerOuterMargin+#1, \InBoxPosition-\LineDistance) -- ++(#2,0mm);
+}
+
+\newcommand{\FullLine}{%
+    \Line{0mm}{\ContentWidth}
 }
 \newcommand{\LabelAt}[2]{% x, label
-    \node[base right] at (\BoxInnerOuterMargin+#1, \InBoxPosition+\LineDistance-4mm)
-        {\fontsize{7pt}{10.5pt}\selectfont #2} ;
+    \node[base right,inner sep=0pt] at (\BoxInnerOuterMargin+#1, \InBoxPosition-4mm)
+        {\fontsize{7pt}{10.5pt}\selectfont #2};
 }
-\newcommand{\LabeledLine}[1]{%label
-    \FullLine
-    \LabelAt{0mm}{#1}
+\newcommand{\LabeledFullLine}[1]{%label
+    \SingleRow{
+        \FullLine
+        \LabelAt{0mm}{#1}
+    }
+}
+
+\setnewlength{\AttributeWidth}{15mm}
+\newcommand{\Attribute}[2]{% x, attribute 
+    \Line{#1}{\AttributeWidth}
+    \Line{#1+\AttributeWidth+\LineGap}{.5*\ContentWidth-1.5*\LineGap-\AttributeWidth}
+    \node[base left,inner sep=0pt] at (\BoxInnerOuterMargin+#1+\AttributeWidth, \InBoxPosition-4mm)
+        {\fontsize{7pt}{10.5pt}\selectfont #2};
+}
+\newcommand{\AttributeLine}[2]{% left attribute, right attribute
+    \SingleRow{%
+        \Attribute{0mm}{#1}
+        \Attribute{.5*\ContentWidth+.5*\LineGap}{#2}
+    }
 }
 
 \begin{document}
@@ -107,27 +139,52 @@
 
     \setlength{\TitleWidth}{36mm}
     \begin{BoxLeft}{Personal Data}
-        \LabeledLine{\textbf{NAME/PRIMARY ALIAS}}
-        \LabeledLine{Metatype}
-        \LabelAt{.5*\ContentWidth}{Ethnicity}
-        \LabeledLine{Age}
-        \LabelAt{.25*\ContentWidth}{Sex}
-        \LabelAt{.5*\ContentWidth}{Height}
-        \LabelAt{.7*\ContentWidth}{Weight}
-        \LabeledLine{Street Cred}
-        \LabelAt{.35*\ContentWidth}{Notoriety}
-        \LabelAt{.7*\ContentWidth}{Public awarness}
-        \LabeledLine{Karma}
-        \LabelAt{.25*\ContentWidth}{Total Karma}
-        \LabelAt{.5*\ContentWidth}{Misc}
+        \LabeledFullLine{\textbf{NAME/PRIMARY ALIAS}}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Metatype}
+            \LabelAt{.5*\ContentWidth}{Ethnicity}
+        \end{BoxRow}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Age}
+            \LabelAt{.25*\ContentWidth}{Sex}
+            \LabelAt{.5*\ContentWidth}{Height}
+            \LabelAt{.7*\ContentWidth}{Weight}
+        \end{BoxRow}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Street Cred}
+            \LabelAt{.35*\ContentWidth}{Notoriety}
+            \LabelAt{.7*\ContentWidth}{Public awarness}
+        \end{BoxRow}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Karma}
+            \LabelAt{.25*\ContentWidth}{Total Karma}
+            \LabelAt{.5*\ContentWidth}{Misc}
+        \end{BoxRow}
     \end{BoxLeft}
 
     \setlength{\TitleWidth}{30mm}
     \begin{BoxLeft}{Attributes}
-        \LabeledLine{Body}
-        \LabeledLine{Agility}
-        \LabeledLine{Reaction}
-        \LabeledLine{Strength}
+        \AttributeLine{Body}{Essence}
+        \AttributeLine{Agility}{Magic/Resonance}
+        \AttributeLine{Reaction}{Initiative}
+        \AttributeLine{Strength}{Matrix Initiative}
+        \AttributeLine{Willpower}{Astral Initiative}
+        \AttributeLine{Logic}{Composure}
+        \AttributeLine{Intuition}{Judge Intentions}
+        \AttributeLine{Charisma}{Memory}
+        \AttributeLine{Edge}{Lift/Carry}
+        \AttributeLine{Edge Points}{Movement}
+        \Skip{1.5mm}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Physical Limit:}
+            \LabelAt{.33*\ContentWidth}{Mental Limit:}
+            \LabelAt{.66*\ContentWidth}{Social Limit:}
+        \end{BoxRow}
     \end{BoxLeft}
 
     \setlength{\TitleWidth}{46mm}
