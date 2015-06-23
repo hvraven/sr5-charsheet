@@ -106,9 +106,13 @@
 \newcommand{\FullLine}{%
     \Line{0mm}{\ContentWidth}
 }
-\newcommand{\LabelAt}[2]{% x, label
-    \node[base right,inner sep=0pt] at (\BoxInnerOuterMargin+#1, \InBoxPosition-4mm)
-        {\fontsize{7pt}{10.5pt}\selectfont #2};
+\newcommand{\HalfLines}{%
+    \Line{0mm}{.5*\ContentWidth-.5*\LineGap}
+    \Line{.5*\ContentWidth+.5*\LineGap}{.5*\ContentWidth-.5*\LineGap}
+}
+\newcommand{\LabelAt}[3][right]{% x, label
+    \node[base #1,inner sep=0pt] at (\BoxInnerOuterMargin+#2, \InBoxPosition-4mm)
+        {\fontsize{7pt}{10.5pt}\selectfont #3};
 }
 \newcommand{\LabeledFullLine}[1]{%label
     \SingleRow{
@@ -166,7 +170,7 @@
         \end{BoxRow}
     \end{BoxLeft}
 
-    \setlength{\TitleWidth}{30mm}
+    \setlength{\TitleWidth}{28mm}
     \begin{BoxLeft}{Attributes}
         \AttributeLine{Body}{Essence}
         \AttributeLine{Agility}{Magic/Resonance}
@@ -185,6 +189,25 @@
             \LabelAt{.33*\ContentWidth}{Mental Limit:}
             \LabelAt{.66*\ContentWidth}{Social Limit:}
         \end{BoxRow}
+    \end{BoxLeft}
+
+    \setlength{\TitleWidth}{18mm}
+    \begin{BoxLeft}{Skills}
+        \begin{BoxRow}
+            \HalfLines
+            \foreach \x in {0mm,.5*\ContentWidth+.5*\LineGap} {
+                \LabelAt{\x}{Skill};
+                \LabelAt{\x+31mm}{RTG};
+                \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{Type};
+            }
+        \end{BoxRow}
+        \foreach \i in {1,...,15} {
+            \begin{BoxRow}
+                \HalfLines
+                \foreach \x in {0mm,.5*\ContentWidth+.5*\LineGap}
+                    \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{\color{line} A/K};
+            \end{BoxRow}
+        }
     \end{BoxLeft}
 
     \setlength{\TitleWidth}{46mm}
