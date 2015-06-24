@@ -67,12 +67,7 @@
 }
 
 \newenvironment{CharSheetPage}{%
-    \begin{tikzpicture}[%
-        x=\textwidth,
-        y=\textheight,
-        inner sep=0pt,
-        outer sep=0pt,
-    ]%
+    \begin{tikzpicture}%
     \path[use as bounding box]
         (-.5*\textwidth,0mm) rectangle (.5*\textwidth,.\textheight);
     \node[anchor=north west] at (-.5*\textwidth,0mm)
