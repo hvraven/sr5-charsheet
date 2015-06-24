@@ -1,4 +1,4 @@
 pdf: sr5_charbogen.pdf
 
-%.pdf: %.tex
-	xelatex $^
+%.pdf: %.tex charsheet.sty
+	xelatex $<
