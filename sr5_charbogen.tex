@@ -53,10 +53,11 @@
 \setlength{\BoxSep}{3mm}
 
 \setnewlength{\BoxInnerUpperMargin}{2mm}
+\setnewlength{\BoxInnerBottomMargin}{2mm}
 \setnewlength{\BoxTitleHeight}{4.5mm}
 \setnewlength{\BoxInnerInnerMargin}{4mm}
 \setnewlength{\BoxInnerOuterMargin}{4mm}
-\setnewlength{\VerticalBoxDistance}{5mm}
+\setnewlength{\VerticalBoxDistance}{3mm}
 \setnewlength{\ContentWidth}{\BoxWidth-\BoxInnerInnerMargin-\BoxInnerOuterMargin}
 \setnewlength{\LineDistance}{4.5mm}
 \setnewlength{\LineGap}{3mm}
@@ -132,6 +133,7 @@
     \DrawBoxTitleLeft{#1}
     \setlength{\InBoxPosition}{-\BoxTitleHeight-\BoxInnerUpperMargin}
 }{%
+    \addtolength{\InBoxPosition}{-\BoxInnerBottomMargin}
     \DrawBoxBorderLeft{-\InBoxPosition}
     \addtolength{\LeftBoxStart}{\InBoxPosition-\VerticalBoxDistance}
     \global\LeftBoxStart=\LeftBoxStart
@@ -145,6 +147,7 @@
     \DrawBoxTitleRight{#1}
     \setlength{\InBoxPosition}{-\BoxTitleHeight-\BoxInnerUpperMargin}
 }{%
+    \addtolength{\InBoxPosition}{-\BoxInnerBottomMargin}
     \DrawBoxBorderRight{-\InBoxPosition}
     \addtolength{\RightBoxStart}{\InBoxPosition-\VerticalBoxDistance}
     \global\RightBoxStart=\RightBoxStart
