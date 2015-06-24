@@ -1,5 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{charsheet}[2014/06/24]
+\ProvidesClass{charsheet}
+    [2014/06/24 v0.01 Charsheet class (currently) for Shadowrun 5]
+
+\LoadClass[a4paper]{article}
+
 \ProcessOptions\relax
 \RequirePackage[%
     margin=0mm,

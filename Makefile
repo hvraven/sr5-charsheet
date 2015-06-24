@@ -1,4 +1,4 @@
 pdf: sr5-original-english.pdf
 
-%.pdf: %.tex charsheet.sty
+%.pdf: %.tex charsheet.cls
 	xelatex $<
