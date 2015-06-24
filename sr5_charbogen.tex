@@ -294,7 +294,7 @@
                 \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{Type};
             }
         \end{BoxRow}
-        \foreach \i in {1,...,19} {
+        \foreach \i in {1,...,20} {
             \begin{BoxRow}
                 \HalfLines
                 \foreach \x in {0mm,.5*\ContentWidth+.5*\LineGap}
@@ -312,7 +312,7 @@
             \LabelAt{.5*\ContentWidth}{Licenses}
         \end{BoxRow}
         \LabeledFullLine{Fake IDs / Related Lifesyles / Funds / Licenses}
-        \foreach \i in {1,...,6} \EmptyFullLine;
+        \foreach \i in {1,...,5} \EmptyFullLine;
     \end{BoxLeft}
 
     \setlength{\TitleWidth}{50mm}
@@ -333,9 +333,10 @@
             \node[base right,inner sep=0pt] at
             (\BoxInnerOuterMargin+\i*.25*\ContentWidth, \InBoxPosition-2.5mm)
             {\fontsize{7pt}{10.5pt}\selectfont \light{\l}};
-        \Skip{7mm}
+        \Skip{7.2mm}
     \end{BoxRight}
 
+    \setlength{\TitleWidth}{46mm}
     \begin{BoxRight}{Condition Monitor}
         \Skip{6mm}
         \ConditionMonitor[Characters have 8 + (Body ÷ 2, round up) boxes on \\
@@ -355,6 +356,7 @@
             \end{tabular}};
     \end{BoxRight}
 
+    \setlength{\TitleWidth}{25mm}
     \begin{BoxRight}{Qualities}
         \begin{BoxRow}
             \FullLine
@@ -370,12 +372,13 @@
         }
     \end{BoxRight}
 
+    \setlength{\TitleWidth}{22mm}
     \begin{BoxRight}{Contacts}
         \begin{BoxRow}
             \FullLine
             \LabelAt{0mm}{Name}
             \LabelAt{45mm}{Loyalty}
-            \LabelAt{60mm}{Connection}
+            \LabelAt{57mm}{Connection}
             \LabelAt{75mm}{Favor}
         \end{BoxRow}
         \foreach \i in {1,...,7} \EmptyFullLine;
