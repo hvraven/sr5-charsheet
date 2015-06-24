@@ -278,6 +278,26 @@
         \foreach \i in {1,...,6} \EmptyFullLine;
     \end{BoxLeft}
 
+    \setlength{\TitleWidth}{50mm}
+    \begin{BoxRight}{Core Combat Info}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Primary Armor}
+            \LabelAt{60mm}{\light{Rating}}
+        \end{BoxRow}
+        \LabeledFullLine{Primary Ranged Weapon}
+        \foreach \i/\l in {0/Dam,1/Acc,2/AP,3/Mode,4/RC,5/Ammo}
+            \node[base right,inner sep=0pt] at
+            (\BoxInnerOuterMargin+\i*.16*\ContentWidth, \InBoxPosition-2.5mm)
+            {\fontsize{7pt}{10.5pt}\selectfont \light{\l}};
+        \Skip{7mm}
+        \LabeledFullLine{Primary Melee Weapon}
+        \foreach \i/\l in {0/Reach,1/Dam,2/Acc,3/AP}
+            \node[base right,inner sep=0pt] at
+            (\BoxInnerOuterMargin+\i*.25*\ContentWidth, \InBoxPosition-2.5mm)
+            {\fontsize{7pt}{10.5pt}\selectfont \light{\l}};
+        \Skip{7mm}
+    \end{BoxRight}
 \end{CharSheetPage}
 \end{CharSheet}
 \end{document}
