@@ -71,6 +71,7 @@
     \node[anchor=north west] at (-.5*\textwidth,0mm)
     {\includegraphics[width=.6\textwidth]{Shadowrun-5-Schriftzug_1500x300px.png}};
     \setlength{\LeftBoxStart}{-30mm}
+    \setlength{\RightBoxStart}{-30mm}
 }{%
     \node[above]  at (0mm, 10mm-\textheight) {\footnotesize
         \begin{tabular}{c}
@@ -87,13 +88,15 @@
 }
 
 \newcommand{\BoxTitle}[1]{\heading \color{white} \MakeUppercase{#1}}
-\newcommand{\BoxRight}[3]{% title, y, height
-    \path[fill=border] (\BoxSep,#2) -- node[right] {\BoxTitle{#1}} ++(0mm,-4.5mm)%
-        -- ++(\TitleWidth,0mm) -- ++(7.5mm,0mm) -- ++(-7.5mm,4.5mm) -- cycle (\BoxSep,#2);%
-    \path[border end] (\BoxSep,#2-#3) -- ++(0mm,12mm);%
-    \path[border end] (\BoxSep+\BoxWidth,#2-#3) -- ++(0mm,12mm);%
-    \path[border] (\BoxSep,#2) -- ++(0mm,-#3+12mm) ++(\BoxWidth,0mm) --
-        ++(0mm,#3-20.5mm) -- ++(-4mm,4mm) -- ++(-\BoxWidth+4mm,0mm);
+\newcommand{\DrawBoxTitleRight}[1]{% title
+    \path[fill=border] (0mm,0mm) -- node[right] {\BoxTitle{#1}} ++(0mm,-\BoxTitleHeight)%
+        -- ++(\TitleWidth,0mm) -- ++(7.5mm,0mm) -- ++(-7.5mm,\BoxTitleHeight) -- cycle (0mm,0mm);
+}
+\newcommand{\DrawBoxBorderRight}[1]{%height
+    \path[border end] (0,-#1) -- ++(0mm,12mm)
+        ++(\BoxWidth,0mm) -- ++(0mm,-12mm);
+    \path[border] (0mm,0mm) -- ++(0mm,-#1+12mm) ++(\BoxWidth,0mm) --
+        ++(0mm,#1-20.5mm) -- ++(-4mm,4mm) -- ++(-\BoxWidth+4mm,0mm);
 }
 \newcommand{\DrawBoxTitleLeft}[1]{% title
     \path[fill=border] (\BoxWidth,0mm) -- node[left] {\BoxTitle{#1}} ++(0mm,-\BoxTitleHeight)%
@@ -109,6 +112,8 @@
 
 \newlength{\LeftBoxStart}
 \newlength{\LeftBoxHeight}
+\newlength{\RightBoxStart}
+\newlength{\RightBoxHeight}
 \newlength{\InBoxPosition}
 \newenvironment{BoxLeft}[1]{%
     \begin{scope}[%
@@ -121,6 +126,19 @@
     \DrawBoxBorderLeft{-\InBoxPosition}
     \addtolength{\LeftBoxStart}{\InBoxPosition-\VerticalBoxDistance}
     \global\LeftBoxStart=\LeftBoxStart
+    \end{scope}
+}
+\newenvironment{BoxRight}[1]{%
+    \begin{scope}[%
+        xshift=\BoxSep,
+        yshift=\RightBoxStart,
+    ]
+    \DrawBoxTitleRight{#1}
+    \setlength{\InBoxPosition}{-\BoxTitleHeight-\BoxInnerUpperMargin}
+}{%
+    \DrawBoxBorderRight{-\InBoxPosition}
+    \addtolength{\RightBoxStart}{\InBoxPosition-\VerticalBoxDistance}
+    \global\RightBoxStart=\RightBoxStart
     \end{scope}
 }
 
@@ -177,9 +195,6 @@
 \begin{document}
 \begin{CharSheet}
 \begin{CharSheetPage}
-    \setlength{\TitleWidth}{44mm}
-    \BoxRight{Core Combat Info}{0mm}{30mm}
-
     \setlength{\TitleWidth}{36mm}
     \begin{BoxLeft}{Personal Data}
         \LabeledFullLine{\textbf{NAME/PRIMARY ALIAS}}
@@ -261,8 +276,6 @@
         \foreach \i in {1,...,6} \EmptyFullLine;
     \end{BoxLeft}
 
-    \setlength{\TitleWidth}{46mm}
-    \BoxRight{Condition Monitor}{-35mm}{90mm}
 \end{CharSheetPage}
 \end{CharSheet}
 \end{document}
