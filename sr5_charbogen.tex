@@ -72,6 +72,13 @@
         (-.5*\textwidth,0mm) rectangle (.5*\textwidth,.\textheight);
     \node[anchor=north west] at (-.5*\textwidth,0mm)
     {\includegraphics[width=.6\textwidth]{Shadowrun-5-Schriftzug_1500x300px.png}};
+    \node[anchor=north west,inner ysep=0pt] (notes) at (20mm,-18.8mm) {\heading NOTES};
+    \node[anchor=north west,inner ysep=0pt] (player) at (20mm,-14.8mm) {\heading PLAYER};
+    \node[anchor=north west,inner ysep=0pt] (charname) at (20mm,-10.8mm) {\heading CHARACTER};
+    \node (end) at (.5*\BoxSep+\BoxWidth,0mm) {};
+    \foreach \n in {notes,charname,player}
+        \draw[line width=.3mm] (\n.south east) -| (\n.south east -| end);
+
     \setlength{\LeftBoxStart}{-30mm}
     \setlength{\RightBoxStart}{-30mm}
 }{%
