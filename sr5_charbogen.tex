@@ -130,7 +130,7 @@
     \global\InBoxPosition=\InBoxPosition
 }
 
-\newcommand{\Skip}[1]{\addtolength{\InBoxPosition}{-#1}}
+\newcommand{\Skip}[1]{\addtolength{\InBoxPosition}{-#1}\global\InBoxPosition=\InBoxPosition}
 
 \newcommand{\SingleRow}[1]{#1 \Skip{\LineDistance}
 }
@@ -155,6 +155,9 @@
         \FullLine
         \LabelAt{0mm}{#1}
     }
+}
+\newcommand{\EmptyFullLine}{%
+    \SingleRow{\FullLine}
 }
 
 \setnewlength{\AttributeWidth}{15mm}
@@ -237,13 +240,25 @@
                 \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{Type};
             }
         \end{BoxRow}
-        \foreach \i in {1,...,15} {
+        \foreach \i in {1,...,19} {
             \begin{BoxRow}
                 \HalfLines
                 \foreach \x in {0mm,.5*\ContentWidth+.5*\LineGap}
                     \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{\color{line} A/K};
             \end{BoxRow}
         }
+    \end{BoxLeft}
+
+    \setlength{\TitleWidth}{70mm}
+    \begin{BoxLeft}{IDs / Lifestyles / Currency}
+        \LabeledFullLine{Primary Lifesyle}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Nuyen}
+            \LabelAt{.5*\ContentWidth}{Licenses}
+        \end{BoxRow}
+        \LabeledFullLine{Fake IDs / Related Lifesyles / Funds / Licenses}
+        \foreach \i in {1,...,6} \EmptyFullLine;
     \end{BoxLeft}
 
     \setlength{\TitleWidth}{46mm}
