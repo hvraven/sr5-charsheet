@@ -1,4 +1,4 @@
-pdf: sr5_charbogen.pdf
+pdf: sr5-original-english.pdf
 
 %.pdf: %.tex charsheet.sty
 	xelatex $<
