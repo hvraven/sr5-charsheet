@@ -385,5 +385,122 @@
         \foreach \i in {1,...,7} \EmptyFullLine;
     \end{BoxRight}
 \end{CharSheetPage}
+
+\begin{CharSheetPage}
+    \setlength{\TitleWidth}{39mm}
+    \begin{BoxLeft}{Ranged Weapons}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Weapon}
+
+            \foreach \l [count=\i from 0] in {Dam,Acc,Ap,Mode,RC,Ammo}
+                \LabelAt{\ContentWidth-60mm+\i*10mm}{\l};
+        \end{BoxRow}
+        \foreach \i in {0,...,6} \EmptyFullLine;
+    \end{BoxLeft}
+
+    \setlength{\TitleWidth}{15mm}
+    \begin{BoxLeft}{Armor}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Armor}
+            \LabelAt{45mm}{Rating}
+            \LabelAt{70mm}{Notes}
+        \end{BoxRow}
+        \foreach \i in {0,...,6} \EmptyFullLine;
+    \end{BoxLeft}
+
+    \setlength{\TitleWidth}{36mm}
+    \begin{BoxLeft}{Augmentations}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Augmentation}
+            \LabelAt{35mm}{Rating}
+            \LabelAt{55mm}{Notes}
+            \LabelAt{75mm}{Essence}
+        \end{BoxRow}
+        \foreach \i in {0,...,6} \EmptyFullLine;
+    \end{BoxLeft}
+
+    \setlength{\TitleWidth}{12mm}
+    \begin{BoxLeft}{Gear}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Item}
+            \LabelAt[left]{\ContentWidth}{Rating}
+        \end{BoxRow}
+        \foreach \i in {0,...,19} \EmptyFullLine;
+    \end{BoxLeft}
+
+    \setlength{\TitleWidth}{35mm}
+    \begin{BoxRight}{Melee Weapons}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Weapon}
+
+            \foreach \l [count=\i from 0] in {Reach,Dam,Acc,AP}
+                \LabelAt{\ContentWidth-60mm+\i*17mm}{\l};
+        \end{BoxRow}
+        \foreach \i in {0,...,6} \EmptyFullLine;
+    \end{BoxRight}
+
+    \setlength{\TitleWidth}{25mm}
+    \begin{BoxRight}{Cyberdeck}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Model}
+            \LabelAt[left]{55mm}{Attack}
+            \LabelAt[left]{75mm}{Sleaze}
+        \end{BoxRow}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Device Rating}
+            \LabelAt[left]{55mm}{Data Processing}
+            \LabelAt[left]{75mm}{Firewall}
+        \end{BoxRow}
+        \LabeledFullLine{Programs}
+        \foreach \i in {0,...,3} \EmptyFullLine;
+        \LabeledFullLine{Matrix Condition Monitor}
+    \end{BoxRight}
+
+    \setlength{\TitleWidth}{20mm}
+    \begin{BoxRight}{Vehicle}
+        \foreach \l/\r in {Vehicle/Handling,Acceleration/Speed,Pilot/Body,Armor/Sensor} {
+            \begin{BoxRow}
+                \FullLine
+                \LabelAt{0mm}{\l}
+                \LabelAt[left]{50mm}{\r}
+            \end{BoxRow}
+        }
+        \LabeledFullLine{Notes}
+        \foreach \i in {0,...,2} \EmptyFullLine;
+    \end{BoxRight}
+
+    \setlength{\TitleWidth}{77mm}
+    \begin{BoxRight}{Spells\,/\,Rituals\,/\,Complex Forms}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{S/P/R/F}
+            \LabelAt{20mm}{Type/Target}
+            \LabelAt{42mm}{Range}
+            \LabelAt{60mm}{Duration}
+            \LabelAt{77mm}{Drain}
+        \end{BoxRow}
+        \foreach \i in {0,...,9} \EmptyFullLine;
+    \end{BoxRight}
+
+
+    \setlength{\TitleWidth}{80mm}
+    \begin{BoxRight}{Adept Powers / Other Abilities}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Name}
+            \LabelAt{50mm}{Rating}
+            \LabelAt{75mm}{Notes}
+        \end{BoxRow}
+        \foreach \i in {0,...,6} \EmptyFullLine;
+    \end{BoxRight}
+
+\end{CharSheetPage}
 \end{CharSheet}
 \end{document}
