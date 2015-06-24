@@ -66,11 +66,13 @@
         inner sep=0pt,
         outer sep=0pt,
     ]%
-    \node[right] at (-.5*\textwidth,0mm)
+    \path[use as bounding box]
+        (-.5*\textwidth,0mm) rectangle (.5*\textwidth,.\textheight);
+    \node[anchor=north west] at (-.5*\textwidth,0mm)
     {\includegraphics[width=.6\textwidth]{Shadowrun-5-Schriftzug_1500x300px.png}};
-    \setlength{\LeftBoxStart}{-12mm}
+    \setlength{\LeftBoxStart}{-30mm}
 }{%
-    \node[above]  at (0mm, 20mm-\textheight) {\footnotesize
+    \node[above]  at (0mm, 10mm-\textheight) {\footnotesize
         \begin{tabular}{c}
             Shadowrun logo and content courtesy of Pegasus Games under
             license from Catalyst Game Labs and Topps Company, Inc.\\
