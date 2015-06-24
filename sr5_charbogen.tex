@@ -1,5 +1,9 @@
 \documentclass[a4paper,xetex]{article}
-\usepackage[margin=3mm]{geometry}
+\usepackage[%
+    margin=0mm,
+    centering,
+]{geometry}
+\pagestyle{empty}
 \usepackage{hyperref}
 \hypersetup{%
     pdfborder = {0 0 0}
@@ -49,6 +53,36 @@
 \setnewlength{\LineDistance}{4.5mm}
 \setnewlength{\LineGap}{3mm}
 
+\newenvironment{CharSheet}{%
+    \color{line}
+}{%
+}
+
+\newenvironment{CharSheetPage}{%
+    \begin{tikzpicture}[%
+        x=\textwidth,
+        y=\textheight,
+        inner sep=0pt,
+        outer sep=0pt,
+    ]%
+    \node[right] at (-.5*\textwidth,0mm)
+    {\includegraphics[width=.6\textwidth]{Shadowrun-5-Schriftzug_1500x300px.png}};
+    \setlength{\LeftBoxStart}{-12mm}
+}{%
+    \node[above]  at (0mm, 20mm-\textheight) {\footnotesize
+        \begin{tabular}{c}
+            Shadowrun logo and content courtesy of Pegasus Games under
+            license from Catalyst Game Labs and Topps Company, Inc.\\
+            © 2014 Toppy Company, Inc. All rights reserved. Shadowrun is a
+            registered trademark of Topps Company, Inc.
+%            Shadowrun-Logo und Inhalte mit freundlicher Genehmigung von Pegasus
+%            Spiele unter Lizenz von Catalyst Game Labs und Topps Company, Inc.\\
+%            © 2014 Toppy Company, Inc. Alle Rechte vorbehalten. Shadowrun ist eine
+%            eingetragene Handelsmarke von Topps Company, Inc.
+        \end{tabular}};%
+\end{tikzpicture}%
+}
+
 \newcommand{\BoxTitle}[1]{\heading \color{white} \MakeUppercase{#1}}
 \newcommand{\BoxRight}[3]{% title, y, height
     \path[fill=border] (\BoxSep,#2) -- node[right] {\BoxTitle{#1}} ++(0mm,-4.5mm)%
@@ -73,7 +107,6 @@
 \newlength{\LeftBoxStart}
 \newlength{\LeftBoxHeight}
 \newlength{\InBoxPosition}
-\setlength{\LeftBoxStart}{0mm}
 \newenvironment{BoxLeft}[1]{%
     \begin{scope}[%
         xshift=-\BoxWidth-\BoxSep,
@@ -136,8 +169,8 @@
 }
 
 \begin{document}
-\color{font}
-\begin{tikzpicture}
+\begin{CharSheet}
+\begin{CharSheetPage}
     \setlength{\TitleWidth}{44mm}
     \BoxRight{Core Combat Info}{0mm}{30mm}
 
@@ -212,5 +245,6 @@
 
     \setlength{\TitleWidth}{46mm}
     \BoxRight{Condition Monitor}{-35mm}{90mm}
-\end{tikzpicture}
+\end{CharSheetPage}
+\end{CharSheet}
 \end{document}
