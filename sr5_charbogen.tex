@@ -14,6 +14,7 @@
 \definecolor{border}{rgb}{0.494117647059,0.0588235294118,0.0705882352941}
 \definecolor{line}{RGB}{109,110,112}
 \definecolor{font}{RGB}{39,36,37}
+\definecolor{monitor}{RGB}{176,178,180}
 
 \usepackage{fontspec}
 \setmainfont[
@@ -32,15 +33,24 @@
     BoldFont={* Condensed Bold},
     ItalicFont={* Condensed Light Italic},
 ]{Open Sans}
+\newfontfamily{\wide}[
+    Ligatures=TeX,
+    UprightFont={* Light},
+    BoldFont={* Bold},
+    ItalicFont={* Light Italic},
+]{Open Sans}
 \newcommand{\light}[1]{{\lightFont\color{line} #1}}
 
 \usepackage{tikz}
 \usetikzlibrary{fadings}
 \usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
 \tikzset{%
     border/.style={draw=border, line width=.3mm},
     border end/.style={border, path fading=south},
     write/.style={draw=line, line width=.3mm},
+    monitor border/.style={draw=line, line width=.3mm, color=border},
+    monitor line/.style={draw=line, line width=.5mm, color=monitor},
 }
 
 \newcommand{\setnewlength}[2]{\newlength{#1}\setlength{#1}{#2}}
@@ -204,6 +214,23 @@
     }
 }
 
+\newcommand{\ConditionMonitor}[4][]{% subcaption, x, rows, title
+    \begin{scope}[xshift=\BoxInnerOuterMargin+#2,yshift=\InBoxPosition,scale=1.28]
+        \node[above] at (1.5, 0) {#4};
+        \foreach \i in {0,...,3} \draw[monitor border] (\i,0) -- (\i,-#3);
+        \foreach \i in {0,...,#3} \draw[monitor border] (0,-\i) -- (3,-\i);
+        \draw[monitor line, fill] (.5,-.5) circle[radius=.07];
+        \foreach \i in {2,...,#3} 
+            \draw[monitor line] (.5,1.5-1*\i) -- ++(2,0) -- ++(-2,-1);
+        \draw[monitor line, -{Stealth[]}] (.5,.5-1*#3) -- ++(2,0);
+        \foreach \i in {1,...,#3}
+        \node[above left] at (3,-\i)
+            {\fontsize{12pt}{18pt}\color{line}\selectfont -\i};
+            \node[below] at (1.5,-#3)
+            {\fontsize{7pt}{9pt}\light{\begin{tabular}{c}#1\end{tabular}}};
+    \end{scope}
+}
+
 \begin{document}
 \begin{CharSheet}
 \begin{CharSheetPage}
@@ -307,6 +334,51 @@
             (\BoxInnerOuterMargin+\i*.25*\ContentWidth, \InBoxPosition-2.5mm)
             {\fontsize{7pt}{10.5pt}\selectfont \light{\l}};
         \Skip{7mm}
+    \end{BoxRight}
+
+    \begin{BoxRight}{Condition Monitor}
+        \Skip{6mm}
+        \ConditionMonitor[Characters have 8 + (Body ÷ 2, round up) boxes on \\
+            the physical damage track; black out extra boxes.]{2mm}{6}{Physical Damage Track}
+        \ConditionMonitor[Characters have 8 + (Will ÷ 2, round up) boxes on \\
+            the stun damage track; black out extra boxes.]{46mm}{4}{Stun Damage Track}
+        \Skip{12.8mm*6}
+        \Skip{8mm}
+        \node[anchor=west, inner ysep=0pt] (overflow) at (50.6mm,-75mm) {Overflow};
+        \draw[line width=.3mm] (overflow.south east) -- ++(22mm,0mm);
+        \node[below] at (69.5mm,-77mm) {\fontsize{7pt}{9pt}\lightFont\selectfont
+            \begin{tabular}{c}
+                For every 3 boxes of damage on any \\one damage track, the
+                character \\takes a –1 Dice Pool modifier on tests; \\these
+                modifiers are cumulative \\within and across damage tracks,\\see
+                \emph{Wound Modifiers}, p. 169.
+            \end{tabular}};
+    \end{BoxRight}
+
+    \begin{BoxRight}{Qualities}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Quality}
+            \LabelAt{60mm}{Notes}
+            \LabelAt[left]{\ContentWidth}{Type}
+        \end{BoxRow}
+        \foreach \i in {1,...,10} {
+            \begin{BoxRow}
+                \FullLine
+                \LabelAt[left]{\ContentWidth}{\light{P/N}}
+            \end{BoxRow}
+        }
+    \end{BoxRight}
+
+    \begin{BoxRight}{Contacts}
+        \begin{BoxRow}
+            \FullLine
+            \LabelAt{0mm}{Name}
+            \LabelAt{45mm}{Loyalty}
+            \LabelAt{60mm}{Connection}
+            \LabelAt{75mm}{Favor}
+        \end{BoxRow}
+        \foreach \i in {1,...,7} \EmptyFullLine;
     \end{BoxRight}
 \end{CharSheetPage}
 \end{CharSheet}
