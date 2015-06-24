@@ -26,6 +26,13 @@
 \newfontfamily{\heading}
     [Ligatures=TeX]
     {Grishenko NBP}
+\newfontfamily{\lightFont}[
+    Ligatures=TeX,
+    UprightFont={* Condensed Light},
+    BoldFont={* Condensed Bold},
+    ItalicFont={* Condensed Light Italic},
+]{Open Sans}
+\newcommand{\light}[1]{{\lightFont\color{line} #1}}
 
 \usepackage{tikz}
 \usetikzlibrary{fadings}
@@ -259,7 +266,7 @@
             \begin{BoxRow}
                 \HalfLines
                 \foreach \x in {0mm,.5*\ContentWidth+.5*\LineGap}
-                    \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{\color{line} A/K};
+                    \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{\light{A/K}};
             \end{BoxRow}
         }
     \end{BoxLeft}
