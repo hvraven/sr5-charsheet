@@ -95,3 +95,45 @@
 \providetranslation{Loyalty}{Loyalität}
 \providetranslation{Connection}{Einfluss}
 \providetranslation{Favor}{Gefallen}
+
+\providetranslation{Ranged Weapons}{Fernkampfwaffen}
+\providetranslation{Weapon}{Waffe}
+
+\providetranslation{Armor}{Panzerung}
+\providetranslation{Augmentations}{Bodytech}
+\providetranslation{Augmentation}{Bodytech}
+\providetranslation{Gear}{Ausrüstung}
+\providetranslation{Item}{Gegenstand}
+\providetranslation{Melee Weapons}{Nahkampfwaffen}
+
+\providetranslation{Cyberdeck}{Cyberdeck}
+\providetranslation{Model}{Modell}
+\providetranslation{Attack}{Angriff}
+\providetranslation{Sleaze}{Schleicher}
+\providetranslation{Device Rating}{Gerätestufe}
+\providetranslation{Data Processing}{Datenverarbeitung}
+\providetranslation{Firewall}{Firewall}
+\providetranslation{Programs}{Programme}
+\providetranslation{Matrix Condition Monitor}{Matrix-Zustandsmonitor}
+
+\providetranslation{Vehicle}{Fahrzeug}
+\providetranslation{Handling}{Handling}
+\providetranslation{Acceleration}{Beschleunigung}
+\providetranslation{Speed}{Geschwindigkeit}
+\providetranslation{Pilot}{Pilot}
+\providetranslation{Vehiclebody}{Rumpf}
+\providetranslation{Sensor}{Sensor}
+
+\providetranslation{Spells}{Zauber}
+\providetranslation{Products}{Erzeugnisse}
+\providetranslation{Rituals}{Rituale}
+\providetranslation{Complex Forms}{Komplexe Formen}
+\providetranslation{S/P/R/F}{P/E/R/KF}
+\providetranslation{Type}{Art}
+\providetranslation{Target}{Ziel}
+\providetranslation{Range}{Reichweite}
+\providetranslation{Duration}{Dauer}
+\providetranslation{Drain}{Entzug}
+
+\providetranslation{Adept Powers}{Adeptenkräfte}
+\providetranslation{Other Abilities}{Sonstiges}

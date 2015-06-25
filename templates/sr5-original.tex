@@ -139,106 +139,106 @@
 \end{CharSheetPage}
 
 \begin{CharSheetPage}
-    \begin{BoxLeft}{Ranged Weapons}
+    \begin{BoxLeft}{\translate{Ranged Weapons}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Weapon}
+            \LabelAt{0mm}{\translate{Weapon}}
 
             \foreach \l [count=\i from 0] in {Dam,Acc,Ap,Mode,RC,Ammo}
-                \LabelAt{\ContentWidth-60mm+\i*10mm}{\l};
+                \LabelAt{\ContentWidth-60mm+\i*10mm}{\translate{\l}};
         \end{BoxRow}
         \foreach \i in {0,...,6} \EmptyFullLine;
     \end{BoxLeft}
 
-    \begin{BoxLeft}{Armor}
+    \begin{BoxLeft}{\translate{Armor}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Armor}
-            \LabelAt{45mm}{Rating}
-            \LabelAt{70mm}{Notes}
+            \LabelAt{0mm}{\translate{Armor}}
+            \LabelAt{45mm}{\translate{Armorrating}}
+            \LabelAt{70mm}{\translate{Notes}}
         \end{BoxRow}
         \foreach \i in {0,...,6} \EmptyFullLine;
     \end{BoxLeft}
 
-    \begin{BoxLeft}{Augmentations}
+    \begin{BoxLeft}{\translate{Augmentations}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Augmentation}
-            \LabelAt{35mm}{Rating}
-            \LabelAt{55mm}{Notes}
-            \LabelAt{75mm}{Essence}
+            \LabelAt{0mm}{\translate{Augmentation}}
+            \LabelAt{35mm}{\translate{Rating}}
+            \LabelAt{55mm}{\translate{Notes}}
+            \LabelAt{75mm}{\translate{Essence}}
         \end{BoxRow}
         \foreach \i in {0,...,6} \EmptyFullLine;
     \end{BoxLeft}
 
-    \begin{BoxLeft}{Gear}
+    \begin{BoxLeft}{\translate{Gear}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Item}
-            \LabelAt[left]{\ContentWidth}{Rating}
+            \LabelAt{0mm}{\translate{Item}}
+            \LabelAt[left]{\ContentWidth}{\translate{Rating}}
         \end{BoxRow}
         \foreach \i in {0,...,19} \EmptyFullLine;
     \end{BoxLeft}
 
-    \begin{BoxRight}{Melee Weapons}
+    \begin{BoxRight}{\translate{Melee Weapons}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Weapon}
+            \LabelAt{0mm}{\translate{Weapon}}
 
             \foreach \l [count=\i from 0] in {Reach,Dam,Acc,AP}
-                \LabelAt{\ContentWidth-60mm+\i*17mm}{\l};
+                \LabelAt{\ContentWidth-60mm+\i*17mm}{\translate{\l}};
         \end{BoxRow}
         \foreach \i in {0,...,6} \EmptyFullLine;
     \end{BoxRight}
 
-    \begin{BoxRight}{Cyberdeck}
+    \begin{BoxRight}{\translate{Cyberdeck}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Model}
-            \LabelAt[left]{55mm}{Attack}
-            \LabelAt[left]{75mm}{Sleaze}
+            \LabelAt{0mm}{\translate{Model}}
+            \LabelAt[left]{55mm}{\translate{Attack}}
+            \LabelAt[left]{75mm}{\translate{Sleaze}}
         \end{BoxRow}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Device Rating}
-            \LabelAt[left]{55mm}{Data Processing}
-            \LabelAt[left]{75mm}{Firewall}
+            \LabelAt{0mm}{\translate{Device Rating}}
+            \LabelAt[left]{55mm}{\translate{Data Processing}}
+            \LabelAt[left]{75mm}{\translate{Firewall}}
         \end{BoxRow}
-        \LabeledFullLine{Programs}
+        \LabeledFullLine{\translate{Programs}}
         \foreach \i in {0,...,3} \EmptyFullLine;
-        \LabeledFullLine{Matrix Condition Monitor}
+        \LabeledFullLine{\translate{Matrix Condition Monitor}}
     \end{BoxRight}
 
-    \begin{BoxRight}{Vehicle}
-        \foreach \l/\r in {Vehicle/Handling,Acceleration/Speed,Pilot/Body,Armor/Sensor} {
+    \begin{BoxRight}{\translate{Vehicle}}
+        \foreach \l/\r in {Vehicle/Handling,Acceleration/Speed,Pilot/Vehiclebody,Armor/Sensor} {
             \begin{BoxRow}
                 \FullLine
-                \LabelAt{0mm}{\l}
-                \LabelAt[left]{50mm}{\r}
+                \LabelAt{0mm}{\translate{\l}}
+                \LabelAt[left]{50mm}{\translate{\r}}
             \end{BoxRow}
         }
-        \LabeledFullLine{Notes}
+        \LabeledFullLine{\translate{Notes}}
         \foreach \i in {0,...,2} \EmptyFullLine;
     \end{BoxRight}
 
-    \begin{BoxRight}{Spells\,/\,Rituals\,/\,Complex Forms}
+    \begin{BoxRight}{\translate{Spells}\,/\,\translate{Rituals}\,/\,\translate{Complex Forms}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{S/P/R/F}
-            \LabelAt{20mm}{Type/Target}
-            \LabelAt{42mm}{Range}
-            \LabelAt{60mm}{Duration}
-            \LabelAt{77mm}{Drain}
+            \LabelAt{0mm}{\translate{S/P/R/F}}
+            \LabelAt{20mm}{\translate{Type}/\translate{Target}}
+            \LabelAt{42mm}{\translate{Range}}
+            \LabelAt{60mm}{\translate{Duration}}
+            \LabelAt{77mm}{\translate{Drain}}
         \end{BoxRow}
         \foreach \i in {0,...,9} \EmptyFullLine;
     \end{BoxRight}
 
-    \begin{BoxRight}{Adept Powers / Other Abilities}
+    \begin{BoxRight}{\translate{Adept Powers}\,/\,\translate{Other Abilities}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Name}
-            \LabelAt{50mm}{Rating}
-            \LabelAt{75mm}{Notes}
+            \LabelAt{0mm}{\translate{Name}}
+            \LabelAt{50mm}{\translate{Rating}}
+            \LabelAt{75mm}{\translate{Notes}}
         \end{BoxRow}
         \foreach \i in {0,...,6} \EmptyFullLine;
     \end{BoxRight}
