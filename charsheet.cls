@@ -122,8 +122,10 @@
 
 \newcommand{\BoxTitle}[1]{\heading \color{white} \MakeUppercase{#1}}
 \newcommand{\DrawBoxTitleRight}[1]{% title
-    \path[fill=border] (0mm,0mm) -- node[right] {\BoxTitle{#1}} ++(0mm,-\BoxTitleHeight)%
-        -- ++(\TitleWidth,0mm) -- ++(7.5mm,0mm) -- ++(-7.5mm,\BoxTitleHeight) -- cycle (0mm,0mm);
+\path[fill=border] (0mm,0mm)
+    -- ++(0mm,1mm-\BoxTitleHeight) node[base right] {\BoxTitle{#1}}
+    -- ++(0mm,-1mm) -- ++(\TitleWidth,0mm) -- ++(7.5mm,0mm)
+    -- ++(-7.5mm,\BoxTitleHeight) -- cycle;
 }
 \newcommand{\DrawBoxBorderRight}[1]{%height
     \path[border end] (0,-#1) -- ++(0mm,12mm)
@@ -132,9 +134,10 @@
         ++(0mm,#1-20.5mm) -- ++(-4mm,4mm) -- ++(-\BoxWidth+4mm,0mm);
 }
 \newcommand{\DrawBoxTitleLeft}[1]{% title
-    \path[fill=border] (\BoxWidth,0mm) -- node[left] {\BoxTitle{#1}} ++(0mm,-\BoxTitleHeight)%
-        -- ++(-\TitleWidth,0mm) -- ++(-7.5mm,0mm) --
-        ++(7.5mm,\BoxTitleHeight) -- cycle (\BoxWidth,0mm);%
+    \path[fill=border] (\BoxWidth,0mm)
+        -- ++(0mm,1mm-\BoxTitleHeight) node[base left] {\BoxTitle{#1}}
+        -- ++(0mm,-1mm) -- ++(-\TitleWidth,0mm) -- ++(-7.5mm,0mm)
+        -- ++(7.5mm,\BoxTitleHeight) -- cycle;
 }
 \newcommand{\DrawBoxBorderLeft}[1]{% height
     \path[border end] (\BoxWidth,-#1) -- ++(0mm,12mm) ++(-\BoxWidth,0mm) -- ++(0mm,-12mm);%
