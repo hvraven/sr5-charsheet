@@ -2,30 +2,18 @@
 \ProvidesClass{charsheet}
     [2014/06/24 v0.01 Charsheet class (currently) for Shadowrun 5]
 
-\def\@headertextcharacter{CHARACTER}
-\def\@headertextplayer{PLAYER}
-\def\@headertextnotes{NOTES}
-\long\def\@footertextdisclaimer{
-    Shadowrun logo and content courtesy of Pegasus Games under
-    license from Catalyst Game Labs and Topps Company, Inc.\\
-    © 2014 Topps Company, Inc. All rights reserved. Shadowrun is a
-    registered trademark of Topps Company, Inc.
-}
-
-\DeclareOption{german}{
-    \def\@headertextcharacter{CHARAKTER}
-    \def\@headertextplayer{SPIELER}
-    \def\@headertextnotes{ANMERKUNGEN}
-    \long\def\@footertextdisclaimer{
-        Shadowrun-Logo und Inhalte mit freundlicher Genehmigung von Pegasus
-        Spiele unter Lizenz von Catalyst Game Labs und Topps Company, Inc.\\
-        © 2014 Topps Company, Inc. Alle Rechte vorbehalten. Shadowrun ist eine
-        eingetragene Handelsmarke von Topps Company, Inc.}
-}
+\def\@language{english}
+\DeclareOption{german}{\def\@language{german}}
+\DeclareOption{ngerman}{\def\@language{ngerman}}
+\DeclareOption{english}{\def\@language{english}}
 
 \ProcessOptions\relax
 
 \LoadClass[a4paper]{article}
+
+\RequirePackage[\@language]{babel}
+\RequirePackage[\@language]{translator}
+\usedictionary{shadowrun}
 
 \RequirePackage[%
     margin=0mm,
@@ -112,11 +100,11 @@
     \node[anchor=north west] at (-.5*\textwidth,0mm)
     {\includegraphics[width=.6\textwidth]{Shadowrun-5-Schriftzug_1500x300px.png}};
     \node[anchor=north west,inner ysep=0pt] (notes) at (20mm,-18.8mm)
-        {\heading \@headertextnotes};
+        {\heading \translate{headingnotes}};
     \node[anchor=north west,inner ysep=0pt] (player) at (20mm,-14.8mm)
-        {\heading \@headertextplayer};
+        {\heading \translate{headingplayer}};
     \node[anchor=north west,inner ysep=0pt] (charname) at (20mm,-10.8mm)
-        {\heading \@headertextcharacter};
+        {\heading \translate{headingcharacter}};
     \node (end) at (.5*\BoxSep+\BoxWidth,0mm) {};
     \foreach \n in {notes,charname,player}
         \draw[line width=.3mm] (\n.south east) -| (\n.south east -| end);
@@ -125,9 +113,7 @@
     \setlength{\RightBoxStart}{-30mm}
 }{%
     \node[above]  at (0mm, 5mm-\textheight) {\footnotesize\color{line}
-        \begin{tabular}{c}
-            \@footertextdisclaimer
-        \end{tabular}};%
+        \begin{tabular}{c} \translate{disclaimer} \end{tabular}};%
 \end{tikzpicture}%
 \newpage
 }

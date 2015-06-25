@@ -1,0 +1,6 @@
+\ProvidesDictionary{shadowrun}{English}
+
+\providetranslation{headingcharacter}{CHARACTER}
+\providetranslation{headingplayer}{PLAYER}
+\providetranslation{headingnotes}{NOTES}
+\providetranslation{disclaimer}{Shadowrun logo and content courtesy of Pegasus Games under license from Catalyst Game Labs and Topps Company, Inc.\\ © 2014 Topps Company, Inc. All rights reserved. Shadowrun is a registered trademark of Topps Company, Inc.}
