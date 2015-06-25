@@ -122,6 +122,8 @@
 
 \newcommand{\BoxTitle}[1]{\heading \color{white} \MakeUppercase{#1}}
 \newcommand{\DrawBoxTitleRight}[1]{% title
+    \settowidth\TitleWidth{\pgfinterruptpicture \BoxTitle{#1}\endpgfinterruptpicture}
+    \addtolength\TitleWidth{2mm}
 \path[fill=border] (0mm,0mm)
     -- ++(0mm,1mm-\BoxTitleHeight) node[base right] {\BoxTitle{#1}}
     -- ++(0mm,-1mm) -- ++(\TitleWidth,0mm) -- ++(7.5mm,0mm)
@@ -134,6 +136,8 @@
         ++(0mm,#1-20.5mm) -- ++(-4mm,4mm) -- ++(-\BoxWidth+4mm,0mm);
 }
 \newcommand{\DrawBoxTitleLeft}[1]{% title
+    \settowidth\TitleWidth{\pgfinterruptpicture \BoxTitle{#1}\endpgfinterruptpicture}
+    \addtolength\TitleWidth{2mm}
     \path[fill=border] (\BoxWidth,0mm)
         -- ++(0mm,1mm-\BoxTitleHeight) node[base left] {\BoxTitle{#1}}
         -- ++(0mm,-1mm) -- ++(-\TitleWidth,0mm) -- ++(-7.5mm,0mm)
