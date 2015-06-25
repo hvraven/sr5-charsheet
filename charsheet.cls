@@ -15,7 +15,8 @@
 \RequirePackage[\@language]{translator}
 \usedictionary{shadowrun}
 
-\newcommand{\translateUC}[1]{{\translatelet\foo{#1}\MakeUppercase{\foo}}}
+\newcommand{\@translateUC}{}
+\newcommand{\translateUC}[1]{\translatelet\@translateUC{#1}\MakeUppercase{\@translateUC}}
 
 \RequirePackage[%
     margin=0mm,
@@ -120,7 +121,8 @@
 \newpage
 }
 
-\newcommand{\BoxTitle}[1]{\heading \color{white} \MakeUppercase{#1}}
+\newcommand{\BoxTitle}[1]{\heading \color{white}
+    {\def\translate##1{\translatelet\foo{##1}\MakeUppercase{\foo}}#1}}
 \newcommand{\DrawBoxTitleRight}[1]{% title
     \settowidth\TitleWidth{\pgfinterruptpicture \BoxTitle{#1}\endpgfinterruptpicture}
     \addtolength\TitleWidth{2mm}
