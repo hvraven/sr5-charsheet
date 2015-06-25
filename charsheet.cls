@@ -15,6 +15,8 @@
 \RequirePackage[\@language]{translator}
 \usedictionary{shadowrun}
 
+\newcommand{\translateUC}[1]{{\translatelet\foo{#1}\MakeUppercase{\foo}}}
+
 \RequirePackage[%
     margin=0mm,
     centering,
@@ -100,11 +102,11 @@
     \node[anchor=north west] at (-.5*\textwidth,0mm)
     {\includegraphics[width=.6\textwidth]{Shadowrun-5-Schriftzug_1500x300px.png}};
     \node[anchor=north west,inner ysep=0pt] (notes) at (20mm,-18.8mm)
-        {\heading \translate{headingnotes}};
+        {\heading \translateUC{notes}};
     \node[anchor=north west,inner ysep=0pt] (player) at (20mm,-14.8mm)
-        {\heading \translate{headingplayer}};
+        {\heading \translateUC{player}};
     \node[anchor=north west,inner ysep=0pt] (charname) at (20mm,-10.8mm)
-        {\heading \translate{headingcharacter}};
+        {\heading \translateUC{character}};
     \node (end) at (.5*\BoxSep+\BoxWidth,0mm) {};
     \foreach \n in {notes,charname,player}
         \draw[line width=.3mm] (\n.south east) -| (\n.south east -| end);
