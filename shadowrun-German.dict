@@ -3,4 +3,95 @@
 \providetranslation{character}{Charakter}
 \providetranslation{player}{Spieler}
 \providetranslation{notes}{Anmerkungen}
+
 \providetranslation{disclaimer}{Shadowrun-Logo und Inhalte mit freundlicher Genehmigung von Pegasus Spiele unter Lizenz von Catalyst Game Labs und Topps Company, Inc.\\ © 2014 Topps Company, Inc. Alle Rechte vorbehalten. Shadowrun ist eine eingetragene Handelsmarke von Topps Company, Inc.} 
+
+\providetranslation{Personal Data}{Persönliche Daten}
+\providetranslation{Name}{Name}
+\providetranslation{Primary Alias}{Strassenname}
+\providetranslation{Metatype}{Metatyp}
+\providetranslation{Ethnicity}{Ethnie}
+\providetranslation{Age}{Alter}
+\providetranslation{Sex}{Geschlecht}
+\providetranslation{Height}{Größe}
+\providetranslation{Weight}{Gewicht}
+\providetranslation{Street Cred}{Straßenruf}
+\providetranslation{Notoriety}{Schlechter Ruf}
+\providetranslation{Public awarness}{Prominenz}
+\providetranslation{Karma}{Karma}
+\providetranslation{Total Karma}{Gesamtkarma}
+\providetranslation{Misc}{Sonstiges}
+
+\providetranslation{Attributes}{Attribute}
+\providetranslation{Body}{Konstitution}
+\providetranslation{Agility}{Geschicklichkeit}
+\providetranslation{Reaction}{Reaktion}
+\providetranslation{Strength}{Stärke}
+\providetranslation{Willpower}{Willenskraft}
+\providetranslation{Logic}{Logik}
+\providetranslation{Inuition}{Intuition}
+\providetranslation{Charisma}{Charisma}
+\providetranslation{Edge}{Edge}
+\providetranslation{Edge Points}{Edgepunkte}
+\providetranslation{Essence}{Essenz}
+\providetranslation{Magic}{Magie}
+\providetranslation{Resonance}{Resonanz}
+\providetranslation{Initiative}{Initiative}
+\providetranslation{Matrix Initiative}{Matrix-Initiative}
+\providetranslation{Astral Initiative}{Astrale Initiative}
+\providetranslation{Composure}{Selbstbeherrschung}
+\providetranslation{Judge Intentions}{Menschenkenntnis}
+\providetranslation{Memory}{Erinnerungsvermögen}
+\providetranslation{Lift/Carry}{Heben/Tragen}
+\providetranslation{Movement}{Bewegung}
+\providetranslation{Physical Limit}{Körperliches Limit}
+\providetranslation{Mental Limit}{Geistiges Limit}
+\providetranslation{Social Limit}{Soziales Limit}
+
+\providetranslation{Skills}{Fertigkeiten}
+\providetranslation{Skill}{Fertigkeit}
+\providetranslation{RTG}{Stufe}
+\providetranslation{Rating}{Stufe}
+\providetranslation{Type}{Art}
+\providetranslation{A/K}{A/W}
+
+\providetranslation{ID}{ID}
+\providetranslation{Lifestyles}{Lebensstile}
+\providetranslation{Currency}{Geld}
+\providetranslation{Primary Lifestyle}{Hauptlebensstil}
+\providetranslation{Nuyen}{Nuyen}
+\providetranslation{Licenses}{Lizenzen}
+\providetranslation{Fake IDs}{Gefälsche IDs}
+\providetranslation{Related Lifestyles}{Weitere Lebensstile}
+\providetranslation{Funds}{Vermögen}
+
+\providetranslation{Core Combat Info}{Wichtige Kampfwerte}
+\providetranslation{Primary Armor}{Rüstung}
+\providetranslation{Armorrating}{Panzerungswert}
+\providetranslation{Primary Ranged Weapon}{Fernkampfwaffe}
+\providetranslation{Dam}{Schaden}
+\providetranslation{Acc}{Präz.}
+\providetranslation{AP}{DK}
+\providetranslation{Mode}{Modus}
+\providetranslation{RC}{RK}
+\providetranslation{Ammo}{Munition}
+\providetranslation{Primary Melee Weapon}{Nahkampfwaffe}
+\providetranslation{Reach}{Reichweite}
+
+\providetranslation{Condition Monitor}{Zustandsmonitor}
+\providetranslation{Physical Damage Track}{Körperlicher Zustandsmonitor}
+\providetranslation{Stun Damage Track}{Geistiger Zustandsmonitor}
+\providetranslation{Overflow}{Überzähliger Schaden}
+\providetranslation{physicalconddesc}{Charaktere haben 8 + (Konstitution ÷ 2, aufgerundet)\\ Kästchen auf dem körperlichen Zustandsmonitor;\\überzählige Kästchen schwärzen}
+\providetranslation{stunconddesc}{Charaktere haben 8 + (Willenskraft ÷ 2, aufgerundet)\\ Kästchen auf dem geistigen Zustandsmonitor;\\überzählige Kästchen schwärzen}
+\providetranslation{overflowdesc}{Pro 3 Kästchen Schaden auf einem Zustandsmonitor \\erhält der Charakter einen \\Würfelpoomodifikator von -1 auf Proben;\\ diese Modifikatoren sind kumulativ;\\ siehe Verletzungsmodifikatoren, S.\,172}
+
+\providetranslation{Qualities}{Vor- und Nachteile}
+\providetranslation{Quality}{Vor-/Nachteil}
+\providetranslation{Notes}{Anmerkungen}
+\providetranslation{P/N}{V/N}
+
+\providetranslation{Contacts}{Connections}
+\providetranslation{Loyalty}{Loyalität}
+\providetranslation{Connection}{Einfluss}
+\providetranslation{Favor}{Gefallen}

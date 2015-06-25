@@ -1,143 +1,138 @@
 \begin{CharSheet}
 \begin{CharSheetPage}
-    \begin{BoxLeft}{Personal Data}
-        \LabeledFullLine{\textbf{NAME/PRIMARY ALIAS}}
+    \begin{BoxLeft}{\translate{Personal Data}}
+        \LabeledFullLine{\translateUC{Name}\,/\,\translateUC{Primary Alias}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Metatype}
-            \LabelAt{.5*\ContentWidth}{Ethnicity}
+            \LabelAt{0mm}{\translate{Metatype}}
+            \LabelAt{.5*\ContentWidth}{\translate{Ethnicity}}
         \end{BoxRow}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Age}
-            \LabelAt{.25*\ContentWidth}{Sex}
-            \LabelAt{.5*\ContentWidth}{Height}
-            \LabelAt{.7*\ContentWidth}{Weight}
+            \LabelAt{0mm}{\translate{Age}}
+            \LabelAt{.25*\ContentWidth}{\translate{Sex}}
+            \LabelAt{.5*\ContentWidth}{\translate{Height}}
+            \LabelAt{.7*\ContentWidth}{\translate{Weight}}
         \end{BoxRow}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Street Cred}
-            \LabelAt{.35*\ContentWidth}{Notoriety}
-            \LabelAt{.7*\ContentWidth}{Public awarness}
+            \LabelAt{0mm}{\translate{Street Cred}}
+            \LabelAt{.35*\ContentWidth}{\translate{Notoriety}}
+            \LabelAt{.7*\ContentWidth}{\translate{Public awarness}}
         \end{BoxRow}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Karma}
-            \LabelAt{.25*\ContentWidth}{Total Karma}
-            \LabelAt{.5*\ContentWidth}{Misc}
+            \LabelAt{0mm}{\translate{Karma}}
+            \LabelAt{.25*\ContentWidth}{\translate{Total Karma}}
+            \LabelAt{.5*\ContentWidth}{\translate{Misc}}
         \end{BoxRow}
     \end{BoxLeft}
 
-    \begin{BoxLeft}{Attributes}
-        \AttributeLine{Body}{Essence}
-        \AttributeLine{Agility}{Magic/Resonance}
-        \AttributeLine{Reaction}{Initiative}
-        \AttributeLine{Strength}{Matrix Initiative}
-        \AttributeLine{Willpower}{Astral Initiative}
-        \AttributeLine{Logic}{Composure}
-        \AttributeLine{Intuition}{Judge Intentions}
-        \AttributeLine{Charisma}{Memory}
-        \AttributeLine{Edge}{Lift/Carry}
-        \AttributeLine{Edge Points}{Movement}
+    \begin{BoxLeft}{\translate{Attributes}}
+        \AttributeLine{\translate{Body}}{\translate{Essence}}
+        \AttributeLine{\translate{Agility}}{\translate{Magic}/\translate{Resonance}}
+        \AttributeLine{\translate{Reaction}}{\translate{Initiative}}
+        \AttributeLine{\translate{Strength}}{\translate{Matrix Initiative}}
+        \AttributeLine{\translate{Willpower}}{\translate{Astral Initiative}}
+        \AttributeLine{\translate{Logic}}{\translate{Composure}}
+        \AttributeLine{\translate{Intuition}}{\translate{Judge Intentions}}
+        \AttributeLine{\translate{Charisma}}{\translate{Memory}}
+        \AttributeLine{\translate{Edge}}{\translate{Lift/Carry}}
+        \AttributeLine{\translate{Edge Points}}{\translate{Movement}}
         \Skip{1.5mm}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Physical Limit:}
-            \LabelAt{.33*\ContentWidth}{Mental Limit:}
-            \LabelAt{.66*\ContentWidth}{Social Limit:}
+            \LabelAt{0mm}{\translate{Physical Limit}:}
+            \LabelAt{.33*\ContentWidth}{\translate{Mental Limit}:}
+            \LabelAt{.66*\ContentWidth}{\translate{Social Limit}:}
         \end{BoxRow}
     \end{BoxLeft}
 
-    \begin{BoxLeft}{Skills}
+    \begin{BoxLeft}{\translate{Skills}}
         \begin{BoxRow}
             \HalfLines
             \foreach \x in {0mm,.5*\ContentWidth+.5*\LineGap} {
-                \LabelAt{\x}{Skill};
-                \LabelAt{\x+31mm}{RTG};
-                \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{Type};
+                \LabelAt{\x}{\translate{Skill}};
+                \LabelAt{\x+31mm}{\translate{RTG}};
+                \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{\translate{Type}};
             }
         \end{BoxRow}
         \foreach \i in {1,...,20} {
             \begin{BoxRow}
                 \HalfLines
                 \foreach \x in {0mm,.5*\ContentWidth+.5*\LineGap}
-                    \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{\light{A/K}};
+                    \LabelAt[left]{\x+.5*\ContentWidth-.5*\LineGap}{\light{\translate{A/K}}};
             \end{BoxRow}
         }
     \end{BoxLeft}
 
-    \begin{BoxLeft}{IDs / Lifestyles / Currency}
-        \LabeledFullLine{Primary Lifesyle}
+    \begin{BoxLeft}{\translate{ID}s / \translate{Lifestyles} / \translate{Currency}}
+        \LabeledFullLine{\translate{Primary Lifestyle}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Nuyen}
-            \LabelAt{.5*\ContentWidth}{Licenses}
+            \LabelAt{0mm}{\translate{Nuyen}}
+            \LabelAt{.5*\ContentWidth}{\translate{Licenses}}
         \end{BoxRow}
-        \LabeledFullLine{Fake IDs / Related Lifesyles / Funds / Licenses}
+        \LabeledFullLine{\translate{Fake IDs} / \translate{Related
+            Lifestyles} / \translate{Funds} / \translate{Licenses}}
         \foreach \i in {1,...,5} \EmptyFullLine;
     \end{BoxLeft}
 
-    \begin{BoxRight}{Core Combat Info}
+    \begin{BoxRight}{\translate{Core Combat Info}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Primary Armor}
-            \LabelAt{60mm}{\light{Rating}}
+            \LabelAt{0mm}{\translate{Primary Armor}}
+            \LabelAt{60mm}{\light{\translate{Armorrating}}}
         \end{BoxRow}
-        \LabeledFullLine{Primary Ranged Weapon}
+        \LabeledFullLine{\translate{Primary Ranged Weapon}}
         \foreach \i/\l in {0/Dam,1/Acc,2/AP,3/Mode,4/RC,5/Ammo}
             \node[base right,inner sep=0pt] at
             (\BoxInnerOuterMargin+\i*.16*\ContentWidth, \InBoxPosition-2.5mm)
-            {\fontsize{7pt}{10.5pt}\selectfont \light{\l}};
+            {\fontsize{7pt}{10.5pt}\selectfont \light{\translate{\l}}};
         \Skip{7mm}
-        \LabeledFullLine{Primary Melee Weapon}
+        \LabeledFullLine{\translate{Primary Melee Weapon}}
         \foreach \i/\l in {0/Reach,1/Dam,2/Acc,3/AP}
             \node[base right,inner sep=0pt] at
             (\BoxInnerOuterMargin+\i*.25*\ContentWidth, \InBoxPosition-2.5mm)
-            {\fontsize{7pt}{10.5pt}\selectfont \light{\l}};
+            {\fontsize{7pt}{10.5pt}\selectfont \light{\translate{\l}}};
         \Skip{7.2mm}
     \end{BoxRight}
 
-    \begin{BoxRight}{Condition Monitor}
+    \begin{BoxRight}{\translate{Condition Monitor}}
         \Skip{6mm}
-        \ConditionMonitor[Characters have 8 + (Body ÷ 2, round up) boxes on \\
-            the physical damage track; black out extra boxes.]{2mm}{6}{Physical Damage Track}
-        \ConditionMonitor[Characters have 8 + (Will ÷ 2, round up) boxes on \\
-            the stun damage track; black out extra boxes.]{46mm}{4}{Stun Damage Track}
+        \ConditionMonitor[\translate{physicalconddesc}]{2mm}{6}{\translate{Physical Damage Track}}
+        \ConditionMonitor[\translate{stunconddesc}]{46mm}{4}{\translate{Stun Damage Track}}
         \Skip{12.8mm*6}
         \Skip{8mm}
-        \node[anchor=west, inner ysep=0pt] (overflow) at (50.6mm,-75mm) {Overflow};
+        \node[anchor=west, inner ysep=0pt] (overflow) at (50.6mm,-75mm)
+            {\translate{Overflow}};
         \draw[line width=.3mm] (overflow.south east) -- ++(22mm,0mm);
         \node[below] at (69.5mm,-77mm) {\fontsize{7pt}{9pt}\lightFont\selectfont
-            \begin{tabular}{c}
-                For every 3 boxes of damage on any \\one damage track, the
-                character \\takes a –1 Dice Pool modifier on tests; \\these
-                modifiers are cumulative \\within and across damage tracks,\\see
-                \emph{Wound Modifiers}, p. 169.
-            \end{tabular}};
+            \begin{tabular}{c}\translate{overflowdesc}\end{tabular}};
     \end{BoxRight}
 
-    \begin{BoxRight}{Qualities}
+    \begin{BoxRight}{\translate{Qualities}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Quality}
-            \LabelAt{60mm}{Notes}
-            \LabelAt[left]{\ContentWidth}{Type}
+            \LabelAt{0mm}{\translate{Quality}}
+            \LabelAt{60mm}{\translate{Notes}}
+            \LabelAt[left]{\ContentWidth}{\translate{Type}}
         \end{BoxRow}
         \foreach \i in {1,...,10} {
             \begin{BoxRow}
                 \FullLine
-                \LabelAt[left]{\ContentWidth}{\light{P/N}}
+                \LabelAt[left]{\ContentWidth}{\light{\translate{P/N}}}
             \end{BoxRow}
         }
     \end{BoxRight}
 
-    \begin{BoxRight}{Contacts}
+    \begin{BoxRight}{\translate{Contacts}}
         \begin{BoxRow}
             \FullLine
-            \LabelAt{0mm}{Name}
-            \LabelAt{45mm}{Loyalty}
-            \LabelAt{57mm}{Connection}
-            \LabelAt{75mm}{Favor}
+            \LabelAt{0mm}{\translate{Name}}
+            \LabelAt{45mm}{\translate{Loyalty}}
+            \LabelAt{57mm}{\translate{Connection}}
+            \LabelAt{75mm}{\translate{Favor}}
         \end{BoxRow}
         \foreach \i in {1,...,7} \EmptyFullLine;
     \end{BoxRight}
@@ -237,7 +232,6 @@
         \end{BoxRow}
         \foreach \i in {0,...,9} \EmptyFullLine;
     \end{BoxRight}
-
 
     \begin{BoxRight}{Adept Powers / Other Abilities}
         \begin{BoxRow}
