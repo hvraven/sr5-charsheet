@@ -124,7 +124,7 @@
     \setlength{\LeftBoxStart}{-30mm}
     \setlength{\RightBoxStart}{-30mm}
 }{%
-    \node[above]  at (0mm, 10mm-\textheight) {\footnotesize\color{line}
+    \node[above]  at (0mm, 5mm-\textheight) {\footnotesize\color{line}
         \begin{tabular}{c}
             \@footertextdisclaimer
         \end{tabular}};%
