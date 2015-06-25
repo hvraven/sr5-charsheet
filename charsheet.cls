@@ -239,3 +239,5 @@
 }
 
 \endinput
+
+% vim: filetype=tex
