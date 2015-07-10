@@ -253,6 +253,18 @@
     \end{scope}
 }
 
+\newcommand{\HexMonitor}[1][12]{% x, fields
+    \Skip{4mm}
+    \begin{scope}[xshift=\BoxInnerOuterMargin,yshift=\InBoxPosition,scale=4.186]
+        \draw[monitor border] (0,0)
+            \foreach\i in {1,...,#1} { -- ++(30:1mm) -- ++(-30:1mm) --
+            ++(0,-1mm) ++(0,1mm) };
+        \draw[monitor border] (0,0) -- (0,-1mm)
+            \foreach\i in {1,...,#1} { -- ++(-30:1mm) node[above=1.5mm] {\color{line}\i} -- ++(30:1mm) };
+    \end{scope}
+    \Skip{5mm}
+}
+
 \endinput
 
 % vim: filetype=tex
