@@ -239,12 +239,12 @@
 \newcommand{\ConditionMonitor}[4][]{% subcaption, x, rows, title
     \begin{scope}[xshift=\BoxInnerOuterMargin+#2,yshift=\InBoxPosition,scale=1.28]
         \node[above] at (1.5, 0) {#4};
-        \foreach \i in {0,...,3} \draw[monitor border] (\i,0) -- (\i,-#3);
-        \foreach \i in {0,...,#3} \draw[monitor border] (0,-\i) -- (3,-\i);
         \draw[monitor line, fill] (.5,-.5) circle[radius=.07];
         \foreach \i in {2,...,#3} 
             \draw[monitor line] (.5,1.5-1*\i) -- ++(2,0) -- ++(-2,-1);
         \draw[monitor line, -{Stealth[]}] (.5,.5-1*#3) -- ++(2,0);
+        \foreach \i in {0,...,3} \draw[monitor border] (\i,0) -- (\i,-#3);
+        \foreach \i in {0,...,#3} \draw[monitor border] (0,-\i) -- (3,-\i);
         \foreach \i in {1,...,#3}
         \node[above left] at (3,-\i)
             {\fontsize{12pt}{18pt}\color{line}\selectfont -\i};
