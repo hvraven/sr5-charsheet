@@ -265,6 +265,23 @@
     \Skip{5mm}
 }
 
+\newcommand{\LargeHexMonitor}[1][12]{% x, fields
+    \pgfmathsetmacro\firstlowbox{int(1 + #1)}
+    \pgfmathsetmacro\lastlowbox{2* #1- 1}
+    \Skip{4mm}
+    \begin{scope}[xshift=\BoxInnerOuterMargin,yshift=\InBoxPosition,scale=4.186]
+        \draw[monitor border] (0,0)
+            \foreach\i in {1,...,#1} { -- ++(30:1mm) -- ++(-30:1mm) --
+            ++(0,-1mm) ++(0,1mm) };
+        \draw[monitor border] (0,0) -- (0,-1mm)
+            \foreach\i in {1,...,#1} { -- ++(-30:1mm) node[above=1.5mm] {\color{line}\i} -- ++(30:1mm) };
+        \draw[monitor border] (0,-1mm) ++(-30:1mm) -- ++(0,-1mm) 
+	\foreach\i in {\firstlowbox,...,\lastlowbox} { -- ++(-30:1mm) node[above=1.5mm] {\color{line}\i} -- ++(30:1mm)
+	    -- ++(0,1mm) ++(0,-1mm)};
+    \end{scope}
+    \Skip{14mm}
+}
+
 \endinput
 
 % vim: filetype=tex
